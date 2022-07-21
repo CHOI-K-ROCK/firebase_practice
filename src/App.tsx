@@ -36,6 +36,22 @@ const Container = styled.section`
   justify-content: center;
   align-items: center;
 
+  .service_title {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+
+    font-size: 2rem;
+    color: #fff;
+
+    background-color: #000;
+    z-index: 1;
+  }
+
   & > form {
     width: min(400px, 90%);
     display: flex;
@@ -104,17 +120,29 @@ const Container = styled.section`
   }
 
   @media screen and (max-width: 500px) {
-    margin-top: 30px;
     justify-content: flex-start;
 
     & > form {
       position: fixed;
       bottom: 0;
+      width: 90%;
       height: 90px;
+      margin-bottom: 0;
+
+      background-color: #000;
+      padding: 20px 30px;
+
+      z-index: 1;
 
       .add_post_button {
         height: 100%;
       }
+    }
+
+    .list_wrapper {
+      margin-top: calc(2rem + 30px);
+      gap: 0;
+      min-height: 0;
     }
   }
 `;
@@ -166,6 +194,7 @@ function App(): JSX.Element {
     <>
       <GlobalStyles />
       <Container>
+        <h1 className="service_title">JUJUL</h1>
         <form onSubmit={(e) => uploadBtnHandler(e)}>
           <div className="input_wrapper">
             <input
