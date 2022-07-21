@@ -99,7 +99,8 @@ const Container = styled.section`
       background: none;
       border: none;
       color: #fff;
-      z-index: 1;
+
+      z-index: 2;
     }
   }
 
@@ -210,7 +211,7 @@ function ListItem({
           return (
             <div key={idx} className="comment">
               {comment.content}
-              {userId === comment.userId ? (
+              {window.localStorage.getItem('userId') === comment.userId ? (
                 <button
                   className="comment_del_btn"
                   type="button"
